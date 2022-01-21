@@ -470,17 +470,17 @@ body {
       "links"
       "socials"
       "copyrights";
+
+    &__icons {
+      grid-area: socials;
+      justify-self: center; // this is not working for some reason
+    }
   }
 
   .logo {
     grid-area: logo;
     width: 60%;
     margin: 0 auto;
-  }
-
-  &__icons {
-    grid-area: socials;
-    justify-self: center; // this is not working for some reason
   }
 
   ul {
