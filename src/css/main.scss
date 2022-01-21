@@ -1,0 +1,499 @@
+@use 'sass:map';
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap');
+
+// Primary
+$white: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 0%);
+$dark-gray: hsl(0, 0%, 55%);
+$very-dark-gray: hsl(0, 0%, 41%);
+
+// Typography
+$fs: 15px;
+$ff-alata: 'Alata', sans-serif;
+$fw-alata: 400;
+$ff-josefin-sans: 'Josefin Sans', sans-serif;
+$fw-josefin-sans: 300;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $ff-alata;
+}
+
+.header {
+  background-image: url('../images/desktop/image-hero.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0 10%;
+  padding-top: 3em;
+  height: 95vh;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__ul {
+    list-style: none;
+    display: flex;
+    gap: 2em;
+  }
+
+  &__option {
+    text-decoration: none;
+    color: $white;
+    font-weight: $fw-alata;
+    padding-bottom: .4em;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-color: $white;
+      width: 20px;
+      height: 2px;
+      left: 1em;
+      bottom: -5px;
+      opacity: 0;
+      transition: opacity 100ms;
+    }
+  
+    &:hover::before {
+      opacity: 1;
+    }
+  }
+}
+
+.hero-text {
+  font-family: $ff-josefin-sans;
+  font-weight: $fw-josefin-sans;
+  font-size: 10vmin;
+  line-height: 1;
+  width: max-content;
+  max-width: 90vmin;
+  padding: .4em .5em;
+  margin-top: 2.5em;
+  text-transform: uppercase;
+  border: $white 3px solid;
+  color: $white;
+}
+
+.main {
+  padding: 0 10%;
+}
+
+.intro {
+  height: 100vh;
+  background-image: url('../images/desktop/image-interactive.jpg');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: left 70%;
+  position: relative;
+
+  &__content {
+    width: 50%;
+    position: absolute;
+    right: 0;
+    bottom: 3em;
+    background-color: $white;
+    padding-top: 5em;
+    padding-left: 7em;
+    padding-bottom: 1em;
+  }
+  
+  &__title {
+    font-family: $ff-josefin-sans;
+    font-weight: $fw-josefin-sans;
+    text-transform: uppercase;
+    font-size: 7vmin;
+    line-height: 1;
+  }
+
+  &__desc {
+    // font-size: $fs;
+    // font-size: 1.05em;
+    font-size: 2.3vmin;
+    color: $very-dark-gray;
+    text-align: left;
+    line-height: 1.8;
+  }
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 200px auto;
+  grid-template-areas: 
+    "title more"
+    "cards cards";
+  align-items: center;
+  margin-top: 5em;
+
+  &__title {
+    font-family: $ff-josefin-sans;
+    font-weight: $fw-josefin-sans;
+    text-transform: uppercase;
+    font-size: 3em;
+    grid-area: title;
+  }
+
+  &__more {
+    grid-area: more;
+    justify-self: end;
+    text-decoration: none;
+    letter-spacing: .3em;
+    color: $black;
+    border: 2px solid $black;
+    border-radius: 2px;
+    padding: .6em 2.6em;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    &:hover {
+      color: $white;
+      background-color: $black;
+    }
+  }
+
+  &__cards {
+    grid-area: cards;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 450px);
+    row-gap: 2em;
+    column-gap: 2em;
+  }
+
+  &__card {
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-blend-mode: multiply;
+    cursor: pointer;
+  }
+
+  $backgrounds: (
+    deep-earth: url('../images/desktop/image-deep-earth.jpg'),
+    night-arcade: url('../images/desktop/image-night-arcade.jpg'),
+    soccer-team-vr: url('../images/desktop/image-soccer-team.jpg'),
+    the-grid: url('../images/desktop/image-grid.jpg'),
+    from-up-above-vr: url('../images/desktop/image-from-above.jpg'),
+    pocket-borealis: url('../images/desktop/image-pocket-borealis.jpg'),
+    the-curiosity: url('../images/desktop/image-curiosity.jpg'),
+    make-it-fisheye: url('../images/desktop/image-fisheye.jpg')
+  );
+
+  // picks the background based on the name;
+  @each $name, $background in $backgrounds {
+    .#{$name} {
+      background-image:
+        #{$background},
+        linear-gradient(to top, mix($black, white, 60), $white);
+    }
+  }
+
+  .transparent-card {
+    background-color: rgba($white, 0);
+    height: 100%;
+
+    &:hover {
+      background-color: rgba($white, .7);
+    }
+  }
+
+  &__card-title {
+    color: $white;
+    text-transform: uppercase;
+    font-family: $ff-josefin-sans;
+    font-weight: $fw-josefin-sans;
+    font-size: 4.5vmin;
+
+    position: absolute;
+    height: 3em;
+    width: 65%;
+    bottom: 0;
+    left: 1.4em;
+  }
+  
+  .transparent-card:hover > .features__card-title{
+    color: black;
+  }
+}
+
+.footer {
+  background-color: $black;
+  margin-top: 12rem;
+  padding: 3em 10%;
+  display: grid;
+  grid-template-areas: 
+    "logo socials"
+    "links copyrights";
+  gap: 2em;
+
+  .logo {
+    grid-area: logo;
+    justify-self: start;
+  }
+
+  &__icons {
+    grid-area: socials;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  &__icon {
+    width: 1.8em;
+    cursor: pointer;
+    padding-bottom: .4em;
+    border-bottom: 2px solid black;
+
+    &:hover {
+      border-bottom: 2px solid $white;
+    }
+  }
+  
+  ul {
+    grid-area: links;
+    justify-self: start;
+    display: flex;
+    gap: 1.5em;
+  }
+
+  a {
+    text-decoration: none;
+    color: $white;
+    position: relative;
+  }
+
+  a::before {
+    content: '';
+    position: absolute;
+    background-color: $white;
+    width: 20px;
+    height: 2px;
+    left: 1em;
+    bottom: -10px;
+    opacity: 0;
+    transition: opacity 100ms;
+  }
+
+  a:hover::before {
+    opacity: 1;
+  }
+
+  .copyrights {
+    grid-area: copyrights;
+    justify-self: end;
+    color: $dark-gray;
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  background-color: $black;
+  color: $white;
+}
+.attribution a {
+  color: hsl(200, 45%, 50%);
+}
+
+@media only screen and (max-width: 800px) {
+  .header {
+    background-image: url('../images/mobile/image-hero.jpg');
+    background-size: cover;
+    padding: 0 5%;
+    padding-top: 3em;
+    height: 90vh;
+  }
+
+  .nav {
+    &__logo {
+      width: 50%;
+    }
+    &__ul {
+      display: none;
+    }
+
+    .deactivated {
+      display: none;
+    }
+  }
+
+  .burger-modal {
+    background-color: black;
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    .logo-and-button {
+      padding: 0 5%;
+      padding-top: 3em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .burger__logo {
+      width: 50%;
+    }
+
+    .burger__ul {
+      align-items: start;
+      list-style: none;
+      margin-top: 40%;
+      display: flex;
+      flex-direction: column;
+      padding: 0 10%;
+      gap: 1.5em;
+    }
+    
+    a {
+      color: $white;
+      text-decoration: none;
+      font-family: $ff-josefin-sans;
+      text-transform: uppercase;
+      font-size: 1.8em;
+    }
+  }
+
+  .hero-text {
+    font-size: 11vmin;
+    margin-top: 3em;
+  }
+
+  .intro {
+    background-image: url('../images/mobile/image-interactive.jpg');
+    background-size: 100%;
+    background-position: top;
+    margin-top: 5em;
+    margin-bottom: -5em;
+
+    &__content {
+      width: 100%;
+      right: auto;
+      bottom: 10.5em;
+      padding: 0;
+    }
+
+    &__title {
+      font-size: 8vmin;
+      text-align: center;
+    }
+
+    &__desc {
+      font-size: 4vmin;
+      text-align: center;
+    }
+  }
+
+  .features {
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "title"
+      "cards"
+      "more";
+    gap: 3em;
+
+    &__title {
+      grid-area: title;
+      font-size: 8vmin;
+      text-align: center;
+    }
+
+    &__cards {
+      grid-area: cards;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(8, 110px);
+      row-gap: 1.5em;
+      column-gap: 0;
+    }
+
+    &__card {
+      background-size: cover;
+      background-position: center;
+    }
+
+    $backgrounds-mobile: (
+      deep-earth: url('../images/mobile/image-deep-earth.jpg'),
+      night-arcade: url('../images/mobile/image-night-arcade.jpg'),
+      soccer-team-vr: url('../images/mobile/image-soccer-team.jpg'),
+      the-grid: url('../images/mobile/image-grid.jpg'),
+      from-up-above-vr: url('../images/mobile/image-from-above.jpg'),
+      pocket-borealis: url('../images/mobile/image-pocket-borealis.jpg'),
+      the-curiosity: url('../images/mobile/image-curiosity.jpg'),
+      make-it-fisheye: url('../images/mobile/image-fisheye.jpg')
+    );
+
+    @each $name, $background in $backgrounds-mobile {
+      .#{$name} {
+        background-image:
+          #{$background},
+          linear-gradient(to right, mix($black, white, 60), $white);
+      }
+    }
+
+    &__card-title {
+      font-size: 5.5vmin;
+      width: 40%;
+      left: 1em;
+    }
+
+    &__more {
+      grid-area: more;
+      margin: 0 auto;
+      padding: .5em 2.7em;
+    }
+  }
+
+  .footer {
+    display: grid;
+    place-content: center;
+    grid-template-areas: 
+      "logo"
+      "links"
+      "socials"
+      "copyrights";
+  }
+
+  .logo {
+    grid-area: logo;
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  &__icons {
+    grid-area: socials;
+    justify-self: center; // this is not working for some reason
+  }
+
+  ul {
+    grid-area: links;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .copyrights {
+    grid-area: copyrights;
+    font-size: .9em;
+    margin: 0 auto;
+  }
+}

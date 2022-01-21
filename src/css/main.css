@@ -1,0 +1,570 @@
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap");
+@use 'sass:map';
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Alata", sans-serif;
+}
+
+.header {
+  background-image: url("../images/desktop/image-hero.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0 10%;
+  padding-top: 3em;
+  height: 95vh;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.nav__ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2em;
+}
+
+.nav__option {
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+  padding-bottom: .4em;
+  position: relative;
+}
+
+.nav__option::before {
+  content: '';
+  position: absolute;
+  background-color: white;
+  width: 20px;
+  height: 2px;
+  left: 1em;
+  bottom: -5px;
+  opacity: 0;
+  -webkit-transition: opacity 100ms;
+  transition: opacity 100ms;
+}
+
+.nav__option:hover::before {
+  opacity: 1;
+}
+
+.hero-text {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+  font-size: 10vmin;
+  line-height: 1;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 90vmin;
+  padding: .4em .5em;
+  margin-top: 2.5em;
+  text-transform: uppercase;
+  border: white 3px solid;
+  color: white;
+}
+
+.main {
+  padding: 0 10%;
+}
+
+.intro {
+  height: 100vh;
+  background-image: url("../images/desktop/image-interactive.jpg");
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: left 70%;
+  position: relative;
+}
+
+.intro__content {
+  width: 50%;
+  position: absolute;
+  right: 0;
+  bottom: 3em;
+  background-color: white;
+  padding-top: 5em;
+  padding-left: 7em;
+  padding-bottom: 1em;
+}
+
+.intro__title {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 7vmin;
+  line-height: 1;
+}
+
+.intro__desc {
+  font-size: 2.3vmin;
+  color: dimgray;
+  text-align: left;
+  line-height: 1.8;
+}
+
+.features {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 200px auto;
+      grid-template-rows: 200px auto;
+      grid-template-areas: "title more" "cards cards";
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 5em;
+}
+
+.features__title {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 3em;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: title;
+}
+
+.features__more {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: more;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  text-decoration: none;
+  letter-spacing: .3em;
+  color: black;
+  border: 2px solid black;
+  border-radius: 2px;
+  padding: .6em 2.6em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.features__more:hover {
+  color: white;
+  background-color: black;
+}
+
+.features__cards {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: cards;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (450px)[2];
+      grid-template-rows: repeat(2, 450px);
+  row-gap: 2em;
+  -webkit-column-gap: 2em;
+          column-gap: 2em;
+}
+
+.features__card {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-blend-mode: multiply;
+  cursor: pointer;
+}
+
+.features .deep-earth {
+  background-image: url("../images/desktop/image-deep-earth.jpg"), -webkit-gradient(linear, left bottom, left top, from(#666666), to(white));
+  background-image: url("../images/desktop/image-deep-earth.jpg"), linear-gradient(to top, #666666, white);
+}
+
+.features .night-arcade {
+  background-image: url("../images/desktop/image-night-arcade.jpg"), -webkit-gradient(linear, left bottom, left top, from(#666666), to(white));
+  background-image: url("../images/desktop/image-night-arcade.jpg"), linear-gradient(to top, #666666, white);
+}
+
+.features .soccer-team-vr {
+  background-image: url("../images/desktop/image-soccer-team.jpg"), -webkit-gradient(linear, left bottom, left top, from(#666666), to(white));
+  background-image: url("../images/desktop/image-soccer-team.jpg"), linear-gradient(to top, #666666, white);
+}
+
+.features .the-grid {
+  background-image: url("../images/desktop/image-grid.jpg"), -webkit-gradient(linear, left bottom, left top, from(#666666), to(white));
+  background-image: url("../images/desktop/image-grid.jpg"), linear-gradient(to top, #666666, white);
+}
+
+.features .from-up-above-vr {
+  background-image: url("../images/desktop/image-from-above.jpg"), -webkit-gradient(linear, left bottom, left top, from(#666666), to(white));
+  background-image: url("../images/desktop/image-from-above.jpg"), linear-gradient(to top, #666666, white);
+}
+
+.features .pocket-borealis {
+  background-image: url("../images/desktop/image-pocket-borealis.jpg"), -webkit-gradient(linear, left bottom, left top, from(#666666), to(white));
+  background-image: url("../images/desktop/image-pocket-borealis.jpg"), linear-gradient(to top, #666666, white);
+}
+
+.features .the-curiosity {
+  background-image: url("../images/desktop/image-curiosity.jpg"), -webkit-gradient(linear, left bottom, left top, from(#666666), to(white));
+  background-image: url("../images/desktop/image-curiosity.jpg"), linear-gradient(to top, #666666, white);
+}
+
+.features .make-it-fisheye {
+  background-image: url("../images/desktop/image-fisheye.jpg"), -webkit-gradient(linear, left bottom, left top, from(#666666), to(white));
+  background-image: url("../images/desktop/image-fisheye.jpg"), linear-gradient(to top, #666666, white);
+}
+
+.features .transparent-card {
+  background-color: rgba(255, 255, 255, 0);
+  height: 100%;
+}
+
+.features .transparent-card:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.features__card-title {
+  color: white;
+  text-transform: uppercase;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+  font-size: 4.5vmin;
+  position: absolute;
+  height: 3em;
+  width: 65%;
+  bottom: 0;
+  left: 1.4em;
+}
+
+.features .transparent-card:hover > .features__card-title {
+  color: black;
+}
+
+.footer {
+  background-color: black;
+  margin-top: 12rem;
+  padding: 3em 10%;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "logo socials" "links copyrights";
+  gap: 2em;
+}
+
+.footer .logo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: logo;
+  -ms-grid-column-align: start;
+      justify-self: start;
+}
+
+.footer__icons {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: socials;
+  justify-self: end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1em;
+}
+
+.footer__icon {
+  width: 1.8em;
+  cursor: pointer;
+  padding-bottom: .4em;
+  border-bottom: 2px solid black;
+}
+
+.footer__icon:hover {
+  border-bottom: 2px solid white;
+}
+
+.footer ul {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: links;
+  justify-self: start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.5em;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+.footer a::before {
+  content: '';
+  position: absolute;
+  background-color: white;
+  width: 20px;
+  height: 2px;
+  left: 1em;
+  bottom: -10px;
+  opacity: 0;
+  -webkit-transition: opacity 100ms;
+  transition: opacity 100ms;
+}
+
+.footer a:hover::before {
+  opacity: 1;
+}
+
+.footer .copyrights {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: copyrights;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  color: #8c8c8c;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+.attribution a {
+  color: #4693b9;
+}
+
+@media only screen and (max-width: 800px) {
+  .header {
+    background-image: url("../images/mobile/image-hero.jpg");
+    background-size: cover;
+    padding: 0 5%;
+    padding-top: 3em;
+    height: 90vh;
+  }
+  .nav__logo {
+    width: 50%;
+  }
+  .nav__ul {
+    display: none;
+  }
+  .nav .deactivated {
+    display: none;
+  }
+  .burger-modal {
+    background-color: black;
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .burger-modal .logo-and-button {
+    padding: 0 5%;
+    padding-top: 3em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .burger-modal .burger__logo {
+    width: 50%;
+  }
+  .burger-modal .burger__ul {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    list-style: none;
+    margin-top: 40%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 0 10%;
+    gap: 1.5em;
+  }
+  .burger-modal a {
+    color: white;
+    text-decoration: none;
+    font-family: "Josefin Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 1.8em;
+  }
+  .hero-text {
+    font-size: 11vmin;
+    margin-top: 3em;
+  }
+  .intro {
+    background-image: url("../images/mobile/image-interactive.jpg");
+    background-size: 100%;
+    background-position: top;
+    margin-top: 5em;
+    margin-bottom: -5em;
+  }
+  .intro__content {
+    width: 100%;
+    right: auto;
+    bottom: 10.5em;
+    padding: 0;
+  }
+  .intro__title {
+    font-size: 8vmin;
+    text-align: center;
+  }
+  .intro__desc {
+    font-size: 4vmin;
+    text-align: center;
+  }
+  .features {
+    margin-top: 0;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+        grid-template-areas: "title" "cards" "more";
+    gap: 3em;
+  }
+  .features__title {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: title;
+    font-size: 8vmin;
+    text-align: center;
+  }
+  .features__cards {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: cards;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: (110px)[8];
+        grid-template-rows: repeat(8, 110px);
+    row-gap: 1.5em;
+    -webkit-column-gap: 0;
+            column-gap: 0;
+  }
+  .features__card {
+    background-size: cover;
+    background-position: center;
+  }
+  .features .deep-earth {
+    background-image: url("../images/mobile/image-deep-earth.jpg"), -webkit-gradient(linear, left top, right top, from(#666666), to(white));
+    background-image: url("../images/mobile/image-deep-earth.jpg"), linear-gradient(to right, #666666, white);
+  }
+  .features .night-arcade {
+    background-image: url("../images/mobile/image-night-arcade.jpg"), -webkit-gradient(linear, left top, right top, from(#666666), to(white));
+    background-image: url("../images/mobile/image-night-arcade.jpg"), linear-gradient(to right, #666666, white);
+  }
+  .features .soccer-team-vr {
+    background-image: url("../images/mobile/image-soccer-team.jpg"), -webkit-gradient(linear, left top, right top, from(#666666), to(white));
+    background-image: url("../images/mobile/image-soccer-team.jpg"), linear-gradient(to right, #666666, white);
+  }
+  .features .the-grid {
+    background-image: url("../images/mobile/image-grid.jpg"), -webkit-gradient(linear, left top, right top, from(#666666), to(white));
+    background-image: url("../images/mobile/image-grid.jpg"), linear-gradient(to right, #666666, white);
+  }
+  .features .from-up-above-vr {
+    background-image: url("../images/mobile/image-from-above.jpg"), -webkit-gradient(linear, left top, right top, from(#666666), to(white));
+    background-image: url("../images/mobile/image-from-above.jpg"), linear-gradient(to right, #666666, white);
+  }
+  .features .pocket-borealis {
+    background-image: url("../images/mobile/image-pocket-borealis.jpg"), -webkit-gradient(linear, left top, right top, from(#666666), to(white));
+    background-image: url("../images/mobile/image-pocket-borealis.jpg"), linear-gradient(to right, #666666, white);
+  }
+  .features .the-curiosity {
+    background-image: url("../images/mobile/image-curiosity.jpg"), -webkit-gradient(linear, left top, right top, from(#666666), to(white));
+    background-image: url("../images/mobile/image-curiosity.jpg"), linear-gradient(to right, #666666, white);
+  }
+  .features .make-it-fisheye {
+    background-image: url("../images/mobile/image-fisheye.jpg"), -webkit-gradient(linear, left top, right top, from(#666666), to(white));
+    background-image: url("../images/mobile/image-fisheye.jpg"), linear-gradient(to right, #666666, white);
+  }
+  .features__card-title {
+    font-size: 5.5vmin;
+    width: 40%;
+    left: 1em;
+  }
+  .features__more {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    grid-area: more;
+    margin: 0 auto;
+    padding: .5em 2.7em;
+  }
+  .footer {
+    display: -ms-grid;
+    display: grid;
+    place-content: center;
+        grid-template-areas: "logo" "links" "socials" "copyrights";
+  }
+  .logo {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: logo;
+    width: 60%;
+    margin: 0 auto;
+  }
+  __icons {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    grid-area: socials;
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+  ul {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: links;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0 auto;
+  }
+  .copyrights {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    grid-area: copyrights;
+    font-size: .9em;
+    margin: 0 auto;
+  }
+}
+/*# sourceMappingURL=main.css.map */
